@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skytech.grading.business.dao.UserDao">
+    <resultMap id="selectEvidence" type="com.skytech.grading.business.domain.Evidence">
+        <id property="evidenceId" column="evidenceId"></id>
+        <result property="evidenceName" column="evidenceName"></result>
+        <result property="evidenceUploader" column="evidenceUploader"></result>
+        <result property="evidenceUrl" column="evidenceUrl"></result>
+    </resultMap>
+
+    <select id="getEvidenceList" resultMap="selectperson">
+        select evidenceId,evidenceName,evidenceUploader,evidenceUrl from evidence;
+    </select>
+
+    <insert id="uploadEvidence" parameterType="com.skytech.grading.business.domain.Evidence">
+        insert into evidence (evidenceId,evidenceName,evidenceUploader,evidenceUrl)
+        values (#{evidenceId},#{evidenceName},#{evidenceUploader},#{evidenceUrl});
+    </insert>
+
+    <delete id="delEvidence">
+        delete from evidence where evidenceId = #{evidenceId};
+    </delete>
+</mapper>
