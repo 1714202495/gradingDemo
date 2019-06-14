@@ -27,18 +27,18 @@
         </collection>
     </resultMap>
     <insert id="addUser">
-        insert into t_user (id,name,email,age) values (#{id},#{name},#{email},#{age})
+        insert into user (id,name,email,age) values (#{id},#{name},#{email},#{age})
     </insert>
     <update id="updateUser">
-        update T_User set name=#{name},age=#{age},email=#{email},starttime=#{starttime},job=#{job},describe=#{describe} where id=#{id}
+        update user set name=#{name},age=#{age},email=#{email},starttime=#{starttime},job=#{job},describe=#{describe} where id=#{id}
     </update>
 
     <select id="getUser" resultType="com.skytech.grading.business.domain.User">
         select * from T_USER where id=#{param1}
     </select>
     <select id="getUserRole" resultMap="selectUser" parameterType="string">
-        select u.*,r.*,p.* from t_user u
-        left join t_user_role ur on u.id = ur.ref_userid
+        select u.*,r.*,p.* from user u
+        left join user_role ur on u.id = ur.ref_userid
         left join t_role r on r.roleId = ur.ref_roleid
         left join t_role_permission rp on rp.ref_roleid = r.roleId
         left join t_permission p on p.permissionId = rp.ref_permissionid
@@ -51,18 +51,18 @@
     <!--<=  特殊字符-->
     <!--呵呵，这个Oracle在sql后面加上了分号，就报错！！十足恶心-->
     <select id="getUserByPage" resultType="com.skytech.grading.business.domain.User">
-        SELECT t_user.id,t_user.name,t_user.email,t_user.age
+        SELECT user.id,user.name,user.email,user.age
 
         FROM (
-        SELECT ROWNUM AS rowno, t.* FROM t_user t WHERE 1=1
+        SELECT ROWNUM AS rowno, t.* FROM  t WHERE 1=1
 
-        AND ROWNUM &lt;= (#{param1}*#{param2})) t_user
+        AND ROWNUM &lt;= (#{param1}*#{param2})) user
 
-        WHERE t_user.rowno >= (#{param1}-1)*#{param2}
+        WHERE user.rowno >= (#{param1}-1)*#{param2}
     </select>
 
     <!--delete-->
     <delete id="delUser">
-        delete from t_user where t_user.id=#{param1}
+        delete from user where user.id=#{param1}
     </delete>
 </mapper>
