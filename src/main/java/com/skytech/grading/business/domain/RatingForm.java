@@ -5,7 +5,7 @@ public class RatingForm {
     private String level; //等级
     private String sort; //类别
     private String condition; //条件
-    private String score; //分数
+    private int score; //分数
 
     public String getRatingFormId() {
         return ratingFormId;
@@ -39,11 +39,11 @@ public class RatingForm {
         this.condition = condition;
     }
 
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(int score) {
         this.score = score;
     }
 }
