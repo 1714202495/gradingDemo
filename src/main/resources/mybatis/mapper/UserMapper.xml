@@ -51,7 +51,7 @@
         SELECT user.id,user.name,user.email,user.age
 
         FROM (
-        SELECT ROWNUM AS rowno, t.* FROM  t WHERE 1=1
+        SELECT ROWNUM AS rowno, user.* FROM  user WHERE 1=1
 
         AND ROWNUM &lt;= (#{param1}*#{param2})) user
 
