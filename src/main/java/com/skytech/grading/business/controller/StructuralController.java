@@ -18,7 +18,7 @@ public class StructuralController {
 
     /**
      * 添加部门组织结构
-     * @param structural
+     * @param structural fdfd
      */
     @RequestMapping(value = "/Structural/addInfor", method = RequestMethod.POST)
     public void addInfor(@RequestBody Structural structural){
