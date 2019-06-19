@@ -9,4 +9,6 @@ public interface RatingFormService {
     List<RatingForm> selectRatingForms();
 
     boolean batchImport(String fileName, MultipartFile file) throws Exception;
+
+    void selectAvgScore(String level);
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skytech.grading.business.dao.StructuralDao">
+    <insert id="addInfor">
+         insert into structural (id,project_emp,project_name,project_manager,product_name,product_manager)
+         values (#{id},#{project_emp},#{project_name},#{project_manager},#{product_name},#{product_manager})
+    </insert>
+
+    <delete id="delById">
+        delete from structural where structural.id =#{id}
+    </delete>
+    <delete id="delByProjectName">
+        delete from structural where project_name=#{project_name}
+    </delete>
+    <delete id="delByProductName">
+        delete from structural where product_name=#{product_name}
+    </delete>
+
+    <update id="updateInfor">
+        update structural set project_emp=#{project_emp},project_name=#{project_name},project_manager=#{project_manager},product_name=#{product_name},product_manager=#{product_manager}
+        where id=#{id}
+    </update>
+
+    <select id="findInfor" resultType="com.skytech.grading.business.domain.Structural">
+        select * from structural where id=#{id}
+    </select>
+</mapper>

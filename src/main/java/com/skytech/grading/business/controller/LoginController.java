@@ -34,6 +34,7 @@ public class LoginController {
      * @return:
      * @Author:
      * @date: 2019/4/30
+     * @Created by huangdasheng
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Object login(@RequestBody User user) throws Exception {

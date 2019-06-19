@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skytech.grading.business.dao.RatingFormDao">
+    <resultMap id="selectRatingForms" type="com.skytech.grading.business.domain.RatingForm">
+        <id property="ratingFormId" column="ratingFormId"></id>
+        <result property="level" column="level"></result>
+        <result property="sort" column="sort"></result>
+        <result property="condition" column="condition"></result>
+        <result property="score" column="score"></result>
+    </resultMap>
+
+    <select id="selectRatingForms" resultMap="RatingFormDao">
+        SELECT ratingFormId,level,sort,condition,score FROM ratingForm
+    </select>
+
+    <update id="updateRatingForm" parameterType="com.skytech.grading.business.domain.RatingForm">
+      update ratingForm set score=#{score} where ratingFormId = #{ratingFormId}
+    </update>
+
+    <select id="selectAvgScore" resultMap="RatingFormDao">
+        SELECT avg(score) FROM ratingForm where level = #{level}
+    </select>
+
+    <!--<select id="selectByCondition" resultType="Integer">-->
+        <!--SELECT count(*) FROM ratingForm WHERE condition=#{condition}-->
+    <!--</select>-->
+</mapper>

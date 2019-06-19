@@ -9,9 +9,6 @@
         <result property="age" column="age"></result>
         <result property="email" column="email"></result>
         <result property="password" column="password"></result>
-        <result property="starttime" column="starttime"></result>
-        <result property="job" column="job"></result>
-        <result property="describe" column="describe"></result>
         <collection property="roleList" ofType="com.skytech.grading.business.domain.Role">
             <id column="roleId" property="roleId"></id>
 
@@ -30,7 +27,7 @@
         insert into user (id,name,email,age) values (#{id},#{name},#{email},#{age})
     </insert>
     <update id="updateUser">
-        update user set name=#{name},age=#{age},email=#{email},starttime=#{starttime},job=#{job},describe=#{describe} where id=#{id}
+        update user set name=#{name},age=#{age},email=#{email} where id=#{id}
     </update>
 
     <select id="getUser" resultType="com.skytech.grading.business.domain.User">

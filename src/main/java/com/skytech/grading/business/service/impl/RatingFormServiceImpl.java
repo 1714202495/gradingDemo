@@ -60,7 +60,7 @@ public class RatingFormServiceImpl implements RatingFormService {
                 continue;
             }
 
-            //sheet.getLastRowNum() 的值是 10，所以Excel表中的数据至少是10条；不然报错 NullPointerException
+            //sheet.getLastRowNum() 的值是多少，那么Excel表中的数据至少就是这么多条；不然报错 NullPointerException
 
             ratingForm = new RatingForm();
 
@@ -95,16 +95,21 @@ public class RatingFormServiceImpl implements RatingFormService {
             rfList.add(ratingForm);
         }
         for (RatingForm record : rfList) {
-            String condition = record.getCondition();
-            int cnt = ratingFormDao.selectByCondition(condition);
-            if (cnt == 0) {
-                ratingFormDao.addRatingForm(record);
-                System.out.println(" 插入 "+record);
-            } else {
+            //String condition = record.getCondition();
+            //int cnt = ratingFormDao.selectByCondition(condition);
+//            if (cnt == 0) {
+//                ratingFormDao.addRatingForm(record);
+//                System.out.println(" 插入 "+record);
+//            } else {
                 ratingFormDao.updateRatingForm(record);
                 System.out.println(" 更新 "+record);
-            }
+ //           }
         }
         return notNull;
+    }
+
+    @Override
+    public void selectAvgScore(String level){
+        ratingFormDao.selectAvgScore(level);
     }
 }

@@ -20,9 +20,6 @@ public class User implements Serializable {
     private String name;
     private Integer age;
     private String email;
-    private String starttime; //工作起始时间
-    private String job; //岗位
-    private String describe; //经验描述
     private List<Role> roleList;
 
     public String getId() {
@@ -63,30 +60,6 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getStarttime() {
-        return starttime;
-    }
-
-    public void setStarttime(String starttime) {
-        this.starttime = starttime;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public String getDescribe() {
-        return describe;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
     }
 
     public List<Role> getRoleList() {

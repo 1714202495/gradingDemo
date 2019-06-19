@@ -9,7 +9,9 @@ public interface RatingFormDao {
 
     void updateRatingForm(RatingForm ratingForm);
 
-    void addRatingForm(RatingForm ratingForm);
+    void selectAvgScore(String level);
 
-    int selectByCondition(String condition);
+    //void addRatingForm(RatingForm ratingForm);
+
+    //int selectByCondition(String condition);
 }
