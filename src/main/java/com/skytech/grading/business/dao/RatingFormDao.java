@@ -1,9 +1,11 @@
 package com.skytech.grading.business.dao;
 
 import com.skytech.grading.business.domain.RatingForm;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface RatingFormDao {
     List<RatingForm> selectRatingForms();
 
