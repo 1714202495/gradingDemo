@@ -14,8 +14,8 @@ import java.io.IOException;
  * @Date 2019/4/30 16:46
  * @Created by huangdasheng
  */
-@Component
-@Slf4j
+//@Component
+//@Slf4j
 public class CrossFilter implements Filter {
     private static Logger log = Logger.getLogger(CrossFilter.class);
     @Override

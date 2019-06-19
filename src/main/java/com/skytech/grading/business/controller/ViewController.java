@@ -33,6 +33,6 @@ public class ViewController {
 
     @RequestMapping("/")
     public String toIndex() {
-        return "forward:index.html";
+        return "login";
     }
 }
