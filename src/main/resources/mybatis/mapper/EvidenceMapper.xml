@@ -10,7 +10,18 @@
         <result property="evidenceUrl" column="evidenceUrl"></result>
     </resultMap>
 
-    <select id="getEvidenceList" resultMap="selectperson">
+    <select id="getEvidenceByPage" resultType="com.skytech.grading.business.domain.Evidence">
+        SELECT  evidence.evidenceId,evidence.evidenceName,evidence.evidenceUploader,evidence.evidenceUrl
+
+        FROM (
+        SELECT ROWNUM AS rowno, evidence.* FROM  evidence WHERE 1=1
+
+        AND ROWNUM &lt;= (#{param1}*#{param2})) evidence
+
+        WHERE evidence.rowno >= (#{param1}-1)*#{param2}
+    </select>
+
+    <select id="getEvidenceList">
         select evidenceId,evidenceName,evidenceUploader,evidenceUrl from evidence;
     </select>
 
