@@ -11,7 +11,7 @@
         <result property="score" column="score"></result>
     </resultMap>
 
-    <select id="selectRatingForms" resultMap="RatingFormDao">
+    <select id="selectRatingForms" resultMap="selectRatingForms">
         SELECT ratingFormId,level,sort,condition,score FROM ratingForm
     </select>
 

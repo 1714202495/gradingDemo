@@ -21,9 +21,9 @@
         WHERE evidence.rowno >= (#{param1}-1)*#{param2}
     </select>
 
-    <select id="getEvidenceList">
-        select evidenceId,evidenceName,evidenceUploader,evidenceUrl from evidence;
-    </select>
+    <!--<select id="getEvidenceList">-->
+        <!--select evidenceId,evidenceName,evidenceUploader,evidenceUrl from evidence;-->
+    <!--</select>-->
 
     <insert id="uploadEvidence" parameterType="com.skytech.grading.business.domain.Evidence">
         insert into evidence (evidenceId,evidenceName,evidenceUploader,evidenceUrl)
