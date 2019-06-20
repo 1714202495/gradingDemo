@@ -1,52 +1,51 @@
-//package com.skytech.grading.business.controller;
-//
-//import com.skytech.grading.business.domain.RatingForm;
-//import com.skytech.grading.business.service.RatingFormService;
-//import org.apache.poi.hssf.usermodel.HSSFRow;
-//import org.apache.poi.hssf.usermodel.HSSFSheet;
-//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-//import org.apache.poi.ss.util.CellRangeAddress;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.*;
-//import org.springframework.web.multipart.MultipartFile;
-//import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
-//import java.io.IOException;
-//import java.io.OutputStream;
-//import java.util.List;
-//
-//@Controller
-//public class RatingFormController {
-//
-//    @Autowired
-//    private RatingFormService ratingFormService;
-//
-//    @RequestMapping("/showRatingForm")
-//    public String showRatingForm(Model model) {
-//        List<RatingForm> ratingForms = ratingFormService.selectRatingForms();
-//        model.addAttribute("ratingForm", ratingForms);
-//        return "index";
-//    }
-//
-//
-//
-//    @RequestMapping(value = "/import")
-//    public String exImport(@RequestParam(value = "filename")MultipartFile file, HttpSession session) {
-//        boolean a = false;
-//        String fileName = file.getOriginalFilename();
-//        try {
-//            a = ratingFormService.batchImport(fileName, file);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "redirect:index";
-//    }
-//
-//    @RequestMapping(value = "/export")
-//    @ResponseBody
-//    public void export(HttpServletResponse response) throws IOException {
+package com.skytech.grading.business.controller;
+
+import com.skytech.grading.business.domain.RatingForm;
+import com.skytech.grading.business.service.RatingFormService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+
+@Controller
+public class RatingFormController {
+
+    @Autowired
+    private RatingFormService ratingFormService;
+
+    @RequestMapping("/showRatingForm")
+    public String showRatingForm(Model model) {
+        List<RatingForm> ratingForms = ratingFormService.selectRatingForms();
+        model.addAttribute("ratingForm", ratingForms);
+        return "index";
+    }
+
+
+
+    @RequestMapping(value = "/import")
+    public String exImport(@RequestParam(value = "filename")MultipartFile file, HttpSession session) {
+        boolean a = false;
+        String fileName = file.getOriginalFilename();
+        try {
+            a = ratingFormService.batchImport(fileName, file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:index";
+    }
+
+    @RequestMapping(value = "/export")
+    @ResponseBody
+    public void export(HttpServletResponse response) throws IOException {
 //        List<RatingForm> ratingForms = ratingFormService.selectRatingForms();
 //
 //        HSSFWorkbook wb = new HSSFWorkbook();
@@ -101,11 +100,11 @@
 //        wb.write(os);
 //        os.flush();
 //        os.close();
-//    }
-//
-//    @RequestMapping
-//    public void selectAvgScore(@RequestParam("level")String level){
-//        ratingFormService.selectAvgScore(level);
-//    }
-//
-//}
+    }
+
+    @RequestMapping
+    public void selectAvgScore(@RequestParam("level")String level){
+        ratingFormService.selectAvgScore(level);
+    }
+
+}
