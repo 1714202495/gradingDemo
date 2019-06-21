@@ -1,39 +1,38 @@
-//package com.skytech.grading.business.service.impl;
-//
-//import com.skytech.grading.business.common.MyException;
-//import com.skytech.grading.business.dao.RatingFormDao;
-//import com.skytech.grading.business.domain.RatingForm;
-//import com.skytech.grading.business.service.RatingFormService;
-//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-//import org.apache.poi.ss.usermodel.Cell;
-//import org.apache.poi.ss.usermodel.Row;
-//import org.apache.poi.ss.usermodel.Sheet;
-//import org.apache.poi.ss.usermodel.Workbook;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
-//import org.springframework.web.multipart.MultipartFile;
-//
-//import java.io.InputStream;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@Service
-//public class RatingFormServiceImpl implements RatingFormService {
-//
-//    @Autowired
-//    private RatingFormDao ratingFormDao;
-//
-//    @Override
-//    public List<RatingForm> selectRatingForms() {
-//        return ratingFormDao.selectRatingForms();
-//    }
-//
-//    @Transactional(readOnly = false,rollbackFor = Exception.class)
-//    @Override
-//    public boolean batchImport(String fileName, MultipartFile file) throws Exception {
-//        boolean notNull = false;
+package com.skytech.grading.business.service.impl;
+
+import com.skytech.grading.business.common.MyException;
+import com.skytech.grading.business.dao.RatingFormDao;
+import com.skytech.grading.business.domain.RatingForm;
+import com.skytech.grading.business.service.RatingFormService;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class RatingFormServiceImpl implements RatingFormService {
+
+    @Autowired
+    private RatingFormDao ratingFormDao;
+
+    @Override
+    public List<RatingForm> selectRatingForms() {
+        return ratingFormDao.selectRatingForms();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public boolean batchImport(String fileName, MultipartFile file) throws Exception {
+        boolean notNull = false;
 //        List<RatingForm> rfList = new ArrayList<>();
 //        if (!fileName.matches("^.+\\.(?i)(xls)$") && !fileName.matches("^.+\\.(?i)(xlsx)$")) {
 //            throw new MyException("上传文件格式不正确");
@@ -106,11 +105,11 @@
 //                System.out.println(" 更新 "+record);
 // //           }
 //        }
-//        return notNull;
-//    }
-//
-//    @Override
-//    public void selectAvgScore(String level){
-//        ratingFormDao.selectAvgScore(level);
-//    }
-//}
+        return notNull;
+    }
+
+    @Override
+    public void selectAvgScore(String level){
+        ratingFormDao.selectAvgScore(level);
+    }
+}
