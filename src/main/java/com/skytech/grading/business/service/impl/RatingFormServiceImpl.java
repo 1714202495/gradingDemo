@@ -65,7 +65,7 @@
 //            ratingForm = new RatingForm();
 //
 //            if(row.getCell(0).getCellType() !=1){//循环时，得到每一行的单元格进行判断
-//                throw new MyException("导入失败(第"+(r+1)+"行,用户名请设为文本格式)");
+//                throw new MyException("导入失败(第"+(r+1)+"行,设为文本格式)");
 //            }
 //
 //            String level = row.getCell(0).getStringCellValue();//得到每一行第一个单元格的值
@@ -74,6 +74,7 @@
 //            }
 //
 //            row.getCell(1).setCellType(Cell.CELL_TYPE_STRING);//得到每一行的 第二个单元格的值
+//            //row.getCell(1).setCellValue(level); //---------------------------------------------
 //
 //            String sort = row.getCell(1).getStringCellValue();
 //            if(sort==null || sort.isEmpty()){

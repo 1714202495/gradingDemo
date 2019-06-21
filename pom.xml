@@ -39,11 +39,7 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.1.0</version>
-        </dependency>
+
         <!--<dependency>-->
             <!--<groupId>com.alibaba</groupId>-->
             <!--<artifactId>druid</artifactId>-->
@@ -141,7 +137,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.2.0</version>
+        </dependency>
 
     </dependencies>
 </project>
